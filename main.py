@@ -13,8 +13,8 @@ from langchain.embeddings import HuggingFaceEmbeddings
 import os
 os.environ['TOGETHER_API_KEY'] = togetherapi_key
 
-st.title("NewsGPT: Your AI-Powered News Research Assistant 📈")
-st.sidebar.title("News Article URLs")
+st.title("📰NewsGPT: Your AI-Powered News Research Assistant ")
+st.sidebar.title("🌐🔗News Article URLs")
 
 urls = []
 for i in range(3):
@@ -55,7 +55,7 @@ if process_url_clicked:
     with open(file_path, "wb") as f:
         pickle.dump(vectorstore_mistral, f)
         
-query = main_placeholder.text_input("Question: ")
+query = main_placeholder.text_input("Question🤖: ")
 if query:
     # Check if FAISS index file exits
     if os.path.exists(file_path):
