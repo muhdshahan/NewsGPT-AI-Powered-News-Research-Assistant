@@ -6,8 +6,12 @@ from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import UnstructuredURLLoader
 from langchain.vectorstores import FAISS  # FAISS is the vector store (for similarity search)
-from secret_key import togetherapi_key
 from langchain.embeddings import HuggingFaceEmbeddings
+
+try:
+    togetherapi_key = st.secrets["togetherapi_key"]
+except Exception:
+    from secret_key import togetherapi_key
 
 # Set Together API key in environment variables
 import os
